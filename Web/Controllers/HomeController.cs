@@ -1,4 +1,6 @@
-﻿using System;
+﻿using AplicationCore.Services;
+using Infraestructure.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -10,21 +12,21 @@ namespace Web.Controllers
     {
         public ActionResult Index()
         {
-            return View();
+            IEnumerable<Apretados> lista = null;
+            try
+            {
+                IServiceApretado SApretado = new ServiceApretado();
+                lista = SApretado.GetApretados();
+                //if (TempData["mensaje"] != null)
+                    //ViewBag.NotificationMessage = TempData["mensaje"].ToString();
+            }
+            catch (Exception e)
+            {
+               // Infraestructure.Util.Log.Error(e, MethodBase.GetCurrentMethod());
+            }
+
+            return View(lista);
         }
 
-        public ActionResult About()
-        {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
-        }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
-        }
     }
 }
