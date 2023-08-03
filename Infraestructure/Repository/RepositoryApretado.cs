@@ -56,7 +56,7 @@ namespace Infraestructure.Repository
                     if (existingApretado != null)
                     {
                         ctx.Apretados.Add(apretado);
-                        ctx.Entry(apretado).State = System.Data.EntityState.Modified;
+                        ctx.Entry(apretado).State = (System.Data.Entity.EntityState)System.Data.EntityState.Modified;
                         ctx.SaveChanges();
                     }
                 }
