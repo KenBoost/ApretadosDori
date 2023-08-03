@@ -17,8 +17,7 @@ namespace Web.Controllers
             {
                 IServiceApretado SApretado = new ServiceApretado();
                 lista = SApretado.GetApretados();
-                //if (TempData["mensaje"] != null)
-                    //ViewBag.NotificationMessage = TempData["mensaje"].ToString();
+                ViewBag.lista = lista;
             }
             catch (Exception e)
             {

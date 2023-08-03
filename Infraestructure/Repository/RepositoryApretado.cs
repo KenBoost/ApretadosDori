@@ -35,11 +35,13 @@ namespace Infraestructure.Repository
 
         public IEnumerable<Apretados> GetApretados()
         {
+            IEnumerable<Apretados> lista = null;
             using (MiContexto ctx = new MiContexto())
             {
                 ctx.Configuration.LazyLoadingEnabled = false;
-                return ctx.Apretados.Where(a => a.estado == true).ToList();
+                lista =  ctx.Apretados.Where(a => a.estado == true).ToList<Apretados>();
             }
+            return lista;
         }
 
         public void Save(Apretados apretado)
