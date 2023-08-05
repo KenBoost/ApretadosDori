@@ -3,6 +3,7 @@ using Infraestructure.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Web;
 using System.Web.Mvc;
 
@@ -21,10 +22,10 @@ namespace Web.Controllers
             }
             catch (Exception e)
             {
-               // Infraestructure.Util.Log.Error(e, MethodBase.GetCurrentMethod());
+               Infraestructure.Util.Log.Error(e, MethodBase.GetCurrentMethod());
             }
 
-            return View(lista);
+            return View();
         }
 
     }

@@ -35,14 +35,23 @@ namespace Infraestructure.Repository
 
         public IEnumerable<Apretados> GetApretados()
         {
-            IEnumerable<Apretados> lista = null;
-            using (MiContexto ctx = new MiContexto())
+            try
             {
-                ctx.Configuration.LazyLoadingEnabled = false;
-                lista =  ctx.Apretados.Where(a => a.estado == true).ToList<Apretados>();
+                using (MiContexto ctx = new MiContexto())
+                {
+                    ctx.Configuration.LazyLoadingEnabled = false;
+                    return ctx.Apretados.ToList();
+                }
             }
-            return lista;
+            catch (Exception ex)
+            {
+                // Manejar la excepción aquí, puedes registrarla o hacer alguna otra acción necesaria.
+                // Por ejemplo, podrías imprimir un mensaje de error:
+                Console.WriteLine("Error al obtener la lista de Apretados: " + ex.Message);
+                return Enumerable.Empty<Apretados>(); // Devolver una lista vacía en caso de error.
+            }
         }
+
 
         public void Save(Apretados apretado)
         {
