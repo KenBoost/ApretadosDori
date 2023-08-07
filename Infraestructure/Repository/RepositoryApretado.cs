@@ -1,6 +1,7 @@
 ﻿using Infraestructure.Model;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -37,11 +38,13 @@ namespace Infraestructure.Repository
         {
             try
             {
+                IEnumerable<Apretados> lista = null;
                 using (MiContexto ctx = new MiContexto())
                 {
                     ctx.Configuration.LazyLoadingEnabled = false;
-                    return ctx.Apretados.ToList();
+                    lista = ctx.Apretados.ToList<Apretados>();
                 }
+                return lista;
             }
             catch (Exception ex)
             {
@@ -67,7 +70,7 @@ namespace Infraestructure.Repository
                     if (existingApretado != null)
                     {
                         ctx.Apretados.Add(apretado);
-                        ctx.Entry(apretado).State = (System.Data.Entity.EntityState)System.Data.EntityState.Modified;
+                        ctx.Entry(apretado).State = EntityState.Modified;
                         ctx.SaveChanges();
                     }
                 }

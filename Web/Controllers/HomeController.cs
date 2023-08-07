@@ -18,14 +18,14 @@ namespace Web.Controllers
             {
                 IServiceApretado SApretado = new ServiceApretado();
                 lista = SApretado.GetApretados();
-                ViewBag.lista = lista;
+                ViewBag.lista = lista.ToList();
             }
             catch (Exception e)
             {
                Infraestructure.Util.Log.Error(e, MethodBase.GetCurrentMethod());
             }
 
-            return View();
+            return View(lista);
         }
 
     }
