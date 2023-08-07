@@ -151,6 +151,9 @@
     <Content Include="Content\Site.css" />
     <Content Include="IMG\dori icon.png" />
     <Content Include="IMG\Fresa.jpg" />
+    <Content Include="IMG\H1.jpg" />
+    <Content Include="IMG\H2.jpg" />
+    <Content Include="IMG\H3.jpeg" />
     <Content Include="IMG\Limon.jpg" />
     <Content Include="IMG\Oreo.jpg" />
     <Content Include="Scripts\bootstrap.bundle.js" />
@@ -204,11 +207,11 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Apretados\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
-    <Folder Include="Views\Apretados\" />
     <Folder Include="Views\Reviews\" />
   </ItemGroup>
   <ItemGroup>
