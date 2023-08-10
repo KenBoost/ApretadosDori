@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="ApretadosDoriModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="ApretadosDoriModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Apretados">
           <Key>
             <PropertyRef Name="ID" />
@@ -25,9 +25,21 @@
           <Property Name="Calificacion" Type="int" />
           <Property Name="Fecha" Type="date" />
         </EntityType>
+        <EntityType Name="Usuario">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="clave" Type="nvarchar(max)" />
+          <Property Name="nombre" Type="nvarchar" MaxLength="50" />
+          <Property Name="apellido" Type="nvarchar" MaxLength="50" />
+          <Property Name="correo_electronico" Type="nvarchar(max)" />
+          <Property Name="estado" Type="bit" />
+        </EntityType>
         <EntityContainer Name="ApretadosDoriModelStoreContainer">
           <EntitySet Name="Apretados" EntityType="Self.Apretados" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Reviews" EntityType="Self.Reviews" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Usuario" EntityType="Self.Usuario" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
       </Schema>
     </edmx:StorageModels>
@@ -54,9 +66,21 @@
           <Property Name="Calificacion" Type="Int32" />
           <Property Name="Fecha" Type="DateTime" Precision="0" />
         </EntityType>
+        <EntityType Name="Usuario">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="clave" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="apellido" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="correo_electronico" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="estado" Type="Boolean" />
+        </EntityType>
         <EntityContainer Name="ApretadosDoriEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Apretados" EntityType="Self.Apretados" />
           <EntitySet Name="Reviews" EntityType="Self.Reviews" />
+          <EntitySet Name="Usuario" EntityType="Self.Usuario" />
         </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
@@ -86,6 +110,18 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Usuario">
+            <EntityTypeMapping TypeName="ApretadosDoriModel.Usuario">
+              <MappingFragment StoreEntitySet="Usuario">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="clave" ColumnName="clave" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="apellido" ColumnName="apellido" />
+                <ScalarProperty Name="correo_electronico" ColumnName="correo_electronico" />
+                <ScalarProperty Name="estado" ColumnName="estado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -102,7 +138,7 @@
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
         <DesignerProperty Name="EnablePluralization" Value="false" />
         <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
-        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
       </DesignerInfoPropertySet>
     </Options>

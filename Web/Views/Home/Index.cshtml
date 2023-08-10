@@ -22,7 +22,7 @@
         @foreach (var helado in Model)
         {
             <div class="carousel-item active">
-                <img src="data:image/jpeg;charset=utf-8;base64,@Convert.ToBase64String(helado.imagen)"  role="img">
+                <img src="data:image/jpeg;charset=utf-8;base64,@Convert.ToBase64String(helado.imagen)"  role="img" style="max-height:500px">
                 <div class="carousel-caption d-none d-md-block">
                     <h5>@Html.DisplayFor(modelItem => helado.Nombre)</h5>
                 </div>

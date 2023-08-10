@@ -12,11 +12,13 @@ namespace Infraestructure.Model
     using System;
     using System.Collections.Generic;
     
-    public partial class Reviews
+    public partial class Usuario
     {
         public int ID { get; set; }
-        public string Comentario { get; set; }
-        public Nullable<int> Calificacion { get; set; }
-        public Nullable<System.DateTime> Fecha { get; set; }
+        public string clave { get; set; }
+        public string nombre { get; set; }
+        public string apellido { get; set; }
+        public string correo_electronico { get; set; }
+        public Nullable<bool> estado { get; set; }
     }
 }

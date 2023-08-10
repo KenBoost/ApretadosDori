@@ -80,29 +80,35 @@
     <Compile Include="Model\Reviews.cs">
       <DependentUpon>MyContext.tt</DependentUpon>
     </Compile>
+    <Compile Include="Model\Usuario.cs">
+      <DependentUpon>MyContext.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\IRepositoryApretado.cs" />
+    <Compile Include="Repository\IRepositoryUsuario.cs" />
     <Compile Include="Repository\RepositoryApretado.cs" />
+    <Compile Include="Repository\RepositoryUsuario.cs" />
     <Compile Include="Utils\Log.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="App.Config" />
     <EntityDeploy Include="Model\MyContext.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>MyContext.Designer.cs</LastGenOutput>
     </EntityDeploy>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.Config" />
     <None Include="Model\MyContext.edmx.diagram">
       <DependentUpon>MyContext.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
     <Content Include="Model\MyContext.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>MyContext.Context.cs</LastGenOutput>
       <DependentUpon>MyContext.edmx</DependentUpon>
+      <LastGenOutput>MyContext.Context.cs</LastGenOutput>
     </Content>
     <Content Include="Model\MyContext.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -110,9 +116,5 @@
       <LastGenOutput>MyContext.cs</LastGenOutput>
     </Content>
   </ItemGroup>
-  <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
-  </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
